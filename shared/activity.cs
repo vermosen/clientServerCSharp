@@ -9,5 +9,6 @@ namespace shared
     class activity
     {
         // contains a running process and manage return types/interruption
+        //
     }
 }
