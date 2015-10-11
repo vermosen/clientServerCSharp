@@ -58,6 +58,12 @@
       <LastGenOutput>serverSettings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\shared\shared.csproj">
+      <Project>{13642bbb-1914-49b0-b845-7fce91e68723}</Project>
+      <Name>shared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -11,7 +11,6 @@ namespace clientServerCSharp
 {
     class Program
     {
-
         private static ManualResetEvent waitHandle = new ManualResetEvent(false);
 
         static void Main(string[] args)

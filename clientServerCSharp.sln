@@ -4,8 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tcpServer", "clientServerCSharp\tcpServer.csproj", "{3576D0A3-1E7C-4C2F-966A-FB8356782A74}"
+	ProjectSection(ProjectDependencies) = postProject
+		{13642BBB-1914-49B0-B845-7FCE91E68723} = {13642BBB-1914-49B0-B845-7FCE91E68723}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tcpClient", "listener\tcpClient.csproj", "{E565E90B-CA43-4472-A9A1-4D2847A94B9A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{13642BBB-1914-49B0-B845-7FCE91E68723} = {13642BBB-1914-49B0-B845-7FCE91E68723}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shared", "shared\shared.csproj", "{13642BBB-1914-49B0-B845-7FCE91E68723}"
 EndProject

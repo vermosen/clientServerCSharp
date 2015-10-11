@@ -17,21 +17,25 @@ namespace clientServerCSharp
         public event killAppDelegate killProgramEvent_;
 
         private int             port_       ;
-        private List<Socket>    sockets_    ;                                   // the first element is the listener
         private EventLog        eventLogger_;
+        string                  serverKey_  ;
+
+        private Dictionary<string, Socket> socketMap_;                          // network dictionary
 
         public tcpServer(int port)
         {
             port_ = port;
+            serverKey_ = "server_" + Environment.MachineName;                   // key to retrieve the entry socket
+            socketMap_ = new Dictionary<string, Socket>();
+            socketMap_.Add(serverKey_, new Socket(                              // we attache the socket to the current machine name
+                AddressFamily.InterNetwork  ,                                   
+                SocketType.Stream           ,
+                ProtocolType.Tcp            ));
 
-            sockets_ = new List<Socket>();
-            sockets_.Add(new Socket(AddressFamily.InterNetwork  ,               // new socket
-                                    SocketType.Stream           ,
-                                    ProtocolType.Tcp            ));
-
-            sockets_[0].Bind        (new IPEndPoint(IPAddress.Any, port_));     // bind the end point
-            sockets_[0].Listen      (10);                                       // queue size
-            sockets_[0].BeginAccept (new AsyncCallback(OnClientConnect), null); // callback
+            // bind the end point
+            socketMap_[serverKey_].Bind(new IPEndPoint(IPAddress.Any, port_));
+            socketMap_[serverKey_].Listen(10);
+            socketMap_[serverKey_].BeginAccept(new AsyncCallback(OnClientConnect), null);
 
             eventLogger_ = new EventLog();
 
@@ -50,9 +54,14 @@ namespace clientServerCSharp
         {
             eventLogger_.WriteEntry("new incomming connection", EventLogEntryType.Information);
 
+            // now we expect the distant machine name 
+            Socket sock = socketMap_[serverKey_].EndAccept(async);
+            IPEndPoint endPoint = (IPEndPoint)sock.RemoteEndPoint;
+            string hostName = Dns.GetHostEntry(endPoint.Address).HostName;
+
             try
             {
-                sockets_.Add(sockets_[0].EndAccept(async));
+                socketMap_.Add(hostName, sock);
             }
             catch (Exception e)
             {
@@ -60,6 +69,15 @@ namespace clientServerCSharp
                 if (killProgramEvent_ != null)
                 killProgramEvent_(this, EventArgs.Empty);
             }
+
+            testSend(hostName);
+
+        }
+
+        protected void testSend(string clientName)
+        {
+            // now we try to send a message to the client
+            string activityPath = 
         }
     }
 }
