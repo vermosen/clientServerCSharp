@@ -31,6 +31,10 @@
             this.eventLogger = new System.Diagnostics.EventLog();
             ((System.ComponentModel.ISupportInitialize)(this.eventLogger)).BeginInit();
             // 
+            // eventLogger
+            // 
+            this.eventLogger.EntryWritten += new System.Diagnostics.EntryWrittenEventHandler(this.eventLogger_EntryWritten);
+            // 
             // tcpMaster
             // 
             this.ServiceName = "Service1";

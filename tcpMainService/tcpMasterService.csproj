@@ -44,21 +44,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="tcpMaster\clientIO.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ProjectInstaller.Designer.cs">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </Compile>
+    <Compile Include="tcpMaster\slaveIO.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="tcpMasterServiceSettings.Designer.cs">
       <DependentUpon>tcpMasterServiceSettings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="tcpMasterService.cs">
+    <Compile Include="tcpMaster\tcpMasterService.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="tcpMasterService.Designer.cs">
+    <Compile Include="tcpMaster\tcpMasterService.Designer.cs">
       <DependentUpon>tcpMasterService.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -75,7 +81,7 @@
     <EmbeddedResource Include="ProjectInstaller.resx">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="tcpMasterService.resx">
+    <EmbeddedResource Include="tcpMaster\tcpMasterService.resx">
       <DependentUpon>tcpMasterService.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

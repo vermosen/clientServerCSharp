@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace tcpMainService {
+namespace tcpMasterService {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -26,12 +26,24 @@ namespace tcpMainService {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("12437")]
-        public int port {
+        public int slavePort {
             get {
-                return ((int)(this["port"]));
+                return ((int)(this["slavePort"]));
             }
             set {
-                this["port"] = value;
+                this["slavePort"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("12438")]
+        public int clientPort {
+            get {
+                return ((int)(this["clientPort"]));
+            }
+            set {
+                this["clientPort"] = value;
             }
         }
     }
