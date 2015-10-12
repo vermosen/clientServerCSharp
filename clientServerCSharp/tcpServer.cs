@@ -77,7 +77,7 @@ namespace clientServerCSharp
         protected void testSend(string clientName)
         {
             // now we try to send a message to the client
-            string activityPath = 
+            //string activityPath = 
         }
     }
 }

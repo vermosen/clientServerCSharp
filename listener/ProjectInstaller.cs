@@ -20,5 +20,10 @@ namespace listener
         {
 
         }
+
+        private void tcpSlaveProcessInstaller_AfterInstall(object sender, InstallEventArgs e)
+        {
+
+        }
     }
 }

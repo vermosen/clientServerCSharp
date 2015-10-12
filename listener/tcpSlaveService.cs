@@ -12,14 +12,14 @@ using System.Net.Sockets;
 
 namespace listener
 {
-    public partial class tcpListener : ServiceBase
+    public partial class tcpSlave : ServiceBase
     {
         // members
         private Socket  socket_ ;
         IPEndPoint      ipEnd_  ;
 
         // ctor
-        public tcpListener()
+        public tcpSlave()
         {
             InitializeComponent();
 
@@ -37,10 +37,10 @@ namespace listener
             eventLogger.WriteEntry("service starting...", EventLogEntryType.Information);
 
             // attempt to connect to the server
-            IPAddress ip = IPAddress.Parse("127.0.0.1");                // TODO: convert args into ip/port
+            IPAddress ip = IPAddress.Parse("127.0.0.1");                // TODO: convert args into ip/port + setting file
             int iPortNo = 12437;
 
-            socket_ = new Socket(AddressFamily.InterNetwork,            // new socket
+            socket_ = new Socket(   AddressFamily.InterNetwork,            // new socket
                                     SocketType.Stream,
                                     ProtocolType.Tcp);
 

@@ -28,34 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tcpListenerProcessInstaller = new System.ServiceProcess.ServiceProcessInstaller();
-            this.tcpListenerInstaller = new System.ServiceProcess.ServiceInstaller();
+            this.tcpSlaveProcessInstaller = new System.ServiceProcess.ServiceProcessInstaller();
+            this.tcpSlaveInstaller = new System.ServiceProcess.ServiceInstaller();
             // 
-            // tcpListenerProcessInstaller
+            // tcpSlaveProcessInstaller
             // 
-            this.tcpListenerProcessInstaller.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
-            this.tcpListenerProcessInstaller.Password = null;
-            this.tcpListenerProcessInstaller.Username = null;
+            this.tcpSlaveProcessInstaller.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
+            this.tcpSlaveProcessInstaller.Password = null;
+            this.tcpSlaveProcessInstaller.Username = null;
+            this.tcpSlaveProcessInstaller.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.tcpSlaveProcessInstaller_AfterInstall);
             // 
-            // tcpListenerInstaller
+            // tcpSlaveInstaller
             // 
-            this.tcpListenerInstaller.Description = "a tcp listening service";
-            this.tcpListenerInstaller.DisplayName = "My super TCP listener";
-            this.tcpListenerInstaller.ServiceName = "tcpListener";
-            this.tcpListenerInstaller.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
+            this.tcpSlaveInstaller.Description = "a tcp listening service";
+            this.tcpSlaveInstaller.DisplayName = "TCP slave service";
+            this.tcpSlaveInstaller.ServiceName = "tcpSlave";
+            this.tcpSlaveInstaller.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 
             // projectInstaller
             // 
             this.Installers.AddRange(new System.Configuration.Install.Installer[] {
-            this.tcpListenerProcessInstaller,
-            this.tcpListenerInstaller});
+            this.tcpSlaveProcessInstaller,
+            this.tcpSlaveInstaller});
             this.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.ProjectInstaller_AfterInstall);
 
         }
 
         #endregion
 
-        private System.ServiceProcess.ServiceProcessInstaller tcpListenerProcessInstaller;
-        private System.ServiceProcess.ServiceInstaller tcpListenerInstaller;
+        private System.ServiceProcess.ServiceProcessInstaller tcpSlaveProcessInstaller;
+        private System.ServiceProcess.ServiceInstaller tcpSlaveInstaller;
     }
 }

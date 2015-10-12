@@ -1,6 +1,6 @@
 ﻿namespace listener
 {
-    partial class tcpListener
+    partial class tcpSlave
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -35,9 +35,9 @@
             // 
             this.eventLogger.EntryWritten += new System.Diagnostics.EntryWrittenEventHandler(this.eventLogger_EntryWritten);
             // 
-            // tcpListener
+            // tcpSlave
             // 
-            this.ServiceName = "tcpListener";
+            this.ServiceName = "tcpSlave";
             ((System.ComponentModel.ISupportInitialize)(this.eventLogger)).EndInit();
 
         }
