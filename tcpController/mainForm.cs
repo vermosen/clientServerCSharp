@@ -16,5 +16,16 @@ namespace tcpController
         {
             InitializeComponent();
         }
+
+        private void mainForm_Load(object sender, EventArgs e)
+        {
+            connect();
+        }
+
+        // method to connect to the main service
+        private void connect()
+        { 
+            
+        }
     }
 }
