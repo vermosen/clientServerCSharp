@@ -34,6 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.activityNameBox = new System.Windows.Forms.TextBox();
+            this.eventLogger = new System.Diagnostics.EventLog();
+            ((System.ComponentModel.ISupportInitialize)(this.eventLogger)).BeginInit();
             this.SuspendLayout();
             // 
             // startButton
@@ -64,6 +66,7 @@
             this.serverIPBox.Size = new System.Drawing.Size(500, 31);
             this.serverIPBox.TabIndex = 2;
             this.serverIPBox.Text = "127.0.0.1:12438";
+            this.serverIPBox.Leave += new System.EventHandler(this.serverIPBox_Leave);
             // 
             // label1
             // 
@@ -92,6 +95,11 @@
             this.activityNameBox.TabIndex = 4;
             this.activityNameBox.Text = "simpleTask.exe";
             // 
+            // eventLogger
+            // 
+            this.eventLogger.SynchronizingObject = this;
+            this.eventLogger.EntryWritten += new System.Diagnostics.EntryWrittenEventHandler(this.eventLogger_EntryWritten);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -107,6 +115,7 @@
             this.Name = "mainForm";
             this.Text = "Controller";
             this.Load += new System.EventHandler(this.mainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.eventLogger)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,6 +129,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox activityNameBox;
+        private System.Diagnostics.EventLog eventLogger;
     }
 }
 

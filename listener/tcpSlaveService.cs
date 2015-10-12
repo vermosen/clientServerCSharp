@@ -23,13 +23,13 @@ namespace listener
         {
             InitializeComponent();
 
-            if (!System.Diagnostics.EventLog.SourceExists("MySource"))  // register source
+            if (!System.Diagnostics.EventLog.SourceExists("batchManager"))  // register source
             {
                 System.Diagnostics.EventLog.CreateEventSource(
-                    "MySource", "MyNewLog");
+                    "batchManager", "slaveService");
             }
-            eventLogger.Source  = "MySource";
-            eventLogger.Log     = "MyNewLog";
+            eventLogger.Source  = "batchManager";
+            eventLogger.Log     = "slaveService";
         }
 
         protected override void OnStart(string[] args)
@@ -51,7 +51,14 @@ namespace listener
 
         protected void connect()
         {
+            if (ipEnd_ == null) return;
+
             eventLogger.WriteEntry("attempt to connect to the server", EventLogEntryType.Information);
+
+            if (socket_.Connected)
+            {
+                eventLogger.WriteEntry("connection successfull", EventLogEntryType.Information);
+            }
 
             try
             {
@@ -62,12 +69,6 @@ namespace listener
                 eventLogger.WriteEntry("connection attempt failed", EventLogEntryType.Error);
                 throw e;
             }
-
-            if (socket_.Connected)
-            {
-                eventLogger.WriteEntry("connection successfull", EventLogEntryType.Information);
-            }
-
         }
 
         protected override void OnStop() 
