@@ -23,13 +23,13 @@ namespace tcpController
         {
             InitializeComponent();
 
-            if (!System.Diagnostics.EventLog.SourceExists("batchManager"))  // register source
+            if (!System.Diagnostics.EventLog.SourceExists("tcpController"))  // register source
             {
                 System.Diagnostics.EventLog.CreateEventSource(
-                    "batchManager", "tcpController");
+                    "tcpController", "batchManager");
             }
-            eventLogger.Source  = "batchManager"    ;
-            eventLogger.Log     = "tcpController"   ;
+            eventLogger.Source  = "tcpController"   ;
+            eventLogger.Log     = "batchManager"    ;
 
             socket_ = new Socket(   AddressFamily.InterNetwork  ,           // new socket
                                     SocketType.Stream           ,

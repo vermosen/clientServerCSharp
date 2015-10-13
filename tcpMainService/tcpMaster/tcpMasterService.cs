@@ -20,14 +20,14 @@ namespace tcpMasterService
         {
             InitializeComponent();
 
-            if (!System.Diagnostics.EventLog.SourceExists("batchManager"))          // register source
+            if (!System.Diagnostics.EventLog.SourceExists("masterService"))          // register source
             {
                 EventLog.CreateEventSource(
-                    "batchManager", "masterService");
+                    "masterService", "batchManager");
             }
 
-            eventLogger.Source  = "batchManager"    ;
-            eventLogger.Log     = "masterService"   ;
+            eventLogger.Source  = "masterService"   ;
+            eventLogger.Log     = "batchManager"    ;
 
             slaveSocketMap_ = new Dictionary<string, Socket>();                     // members initialization
             clientSocketMap_ = new Dictionary<string, Socket>();

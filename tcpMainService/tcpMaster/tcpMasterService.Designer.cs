@@ -37,7 +37,7 @@
             // 
             // tcpMaster
             // 
-            this.ServiceName = "Service1";
+            this.ServiceName = "tcpMaster";
             ((System.ComponentModel.ISupportInitialize)(this.eventLogger)).EndInit();
 
         }

@@ -23,13 +23,13 @@ namespace listener
         {
             InitializeComponent();
 
-            if (!System.Diagnostics.EventLog.SourceExists("batchManager"))  // register source
+            if (!System.Diagnostics.EventLog.SourceExists("slaveService"))  // register source
             {
                 System.Diagnostics.EventLog.CreateEventSource(
-                    "batchManager", "slaveService");
+                    "slaveService", "batchManager");
             }
-            eventLogger.Source  = "batchManager";
-            eventLogger.Log     = "slaveService";
+            eventLogger.Source  = "slaveService";
+            eventLogger.Log     = "batchManager";
         }
 
         protected override void OnStart(string[] args)

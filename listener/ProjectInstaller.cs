@@ -16,7 +16,7 @@ namespace listener
             InitializeComponent();
         }
 
-        private void ProjectInstaller_AfterInstall(object sender, InstallEventArgs e)
+        private void projectInstaller_AfterInstall(object sender, InstallEventArgs e)
         {
 
         }

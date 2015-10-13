@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace tcpMainService
 {
     [RunInstaller(true)]
-    public partial class ProjectInstaller : System.Configuration.Install.Installer
+    public partial class projectInstaller : System.Configuration.Install.Installer
     {
-        public ProjectInstaller()
+        public projectInstaller()
         {
             InitializeComponent();
         }

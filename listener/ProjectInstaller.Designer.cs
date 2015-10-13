@@ -43,14 +43,13 @@
             this.tcpSlaveInstaller.Description = "a tcp listening service";
             this.tcpSlaveInstaller.DisplayName = "TCP slave service";
             this.tcpSlaveInstaller.ServiceName = "tcpSlave";
-            this.tcpSlaveInstaller.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 
             // projectInstaller
             // 
             this.Installers.AddRange(new System.Configuration.Install.Installer[] {
             this.tcpSlaveProcessInstaller,
             this.tcpSlaveInstaller});
-            this.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.ProjectInstaller_AfterInstall);
+            this.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.projectInstaller_AfterInstall);
 
         }
 
