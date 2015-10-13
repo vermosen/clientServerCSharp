@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shared", "shared\shared.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tcpController", "tcpController\tcpController.csproj", "{29849492-C2D3-43B4-A494-CA4A93BAABF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpletask", "Simpletask\Simpletask.csproj", "{42702812-115C-4870-AA9F-6382A0DE42E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "simpleTask", "Simpletask\simpleTask.csproj", "{42702812-115C-4870-AA9F-6382A0DE42E2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tcpMasterService", "tcpMainService\tcpMasterService.csproj", "{E9A31C8B-8406-4CD6-A998-9A2A165A14A1}"
 EndProject
