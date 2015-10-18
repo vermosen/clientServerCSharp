@@ -16,7 +16,7 @@ namespace listener
     {
         // members
         private Socket  socket_ ;
-        IPEndPoint      ipEnd_  ;
+        private IPEndPoint      ipEnd_  ;
 
         // ctor
         public tcpSlave()
@@ -55,14 +55,13 @@ namespace listener
 
             eventLogger.WriteEntry("attempt to connect to the server", EventLogEntryType.Information);
 
-            if (socket_.Connected)
-            {
-                eventLogger.WriteEntry("connection successfull", EventLogEntryType.Information);
-            }
-
             try
             {
                 socket_.Connect(ipEnd_);
+                if (socket_.Connected)
+                {
+                    eventLogger.WriteEntry("connection successfull", EventLogEntryType.Information);
+                }
             }
             catch (Exception e)
             {

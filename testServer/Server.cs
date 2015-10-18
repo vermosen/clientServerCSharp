@@ -31,6 +31,8 @@ namespace testServer
             socketMap_["SERVER"].Bind(new IPEndPoint(IPAddress.Any, 10001));
             socketMap_["SERVER"].Listen(10);
             socketMap_["SERVER"].BeginAccept(new AsyncCallback(onClientConnect), null);
+
+            Console.WriteLine("starting server...");
         }
 
         // static members
